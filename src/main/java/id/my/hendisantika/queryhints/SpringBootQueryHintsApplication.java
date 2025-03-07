@@ -3,7 +3,7 @@ package id.my.hendisantika.queryhints;
 import id.my.hendisantika.queryhints.entity.Employee;
 import id.my.hendisantika.queryhints.repository.EmployeeRepository;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,9 +15,9 @@ import java.util.stream.IntStream;
 import static id.my.hendisantika.queryhints.entity.Department.randomLetter;
 
 @SpringBootApplication
-@RequiredArgsConstructor
 public class SpringBootQueryHintsApplication {
-    private final EmployeeRepository employeeRepository;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     public static double generateSalary(double min, double max) {
         // Generate a random double in the range 0.0 to 1.0
