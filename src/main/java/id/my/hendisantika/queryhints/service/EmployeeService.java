@@ -1,8 +1,11 @@
 package id.my.hendisantika.queryhints.service;
 
+import id.my.hendisantika.queryhints.entity.Employee;
 import id.my.hendisantika.queryhints.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,6 +26,10 @@ public class EmployeeService {
 
     public Long fetchEmployees() {
         return employeeRepository.count();
+    }
+
+    public List<Employee> getEmployeesBySalary(double salary) {
+        return employeeRepository.findEmployeesWithSalaryGreaterThan(salary);
     }
 
 }
