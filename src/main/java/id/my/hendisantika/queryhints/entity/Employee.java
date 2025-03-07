@@ -28,14 +28,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String dept;
+    private Department department;
     private String email;
     private String gender;
     private double salary;
 
-    public Employee(String name, String dept, String email, String gender, double salary) {
+    public Employee(String name, Department department, String email, String gender, double salary) {
         this.name = name;
-        this.dept = dept;
+        this.department = department;
         this.email = email;
         this.gender = gender;
         this.salary = salary;
