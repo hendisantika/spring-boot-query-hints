@@ -1,5 +1,8 @@
 package id.my.hendisantika.queryhints.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -30,4 +33,15 @@ public enum Department {
     public static Department randomLetter() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
+
+    @JsonCreator
+    public static Department create(String value) {
+        return Department.valueOf(value.toUpperCase());
+    }
+
+    @JsonValue
+    public String get() {
+        return this.name().toUpperCase();
+    }
+
 }

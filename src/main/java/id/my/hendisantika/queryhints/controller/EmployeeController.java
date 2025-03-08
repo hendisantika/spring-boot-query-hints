@@ -1,5 +1,6 @@
 package id.my.hendisantika.queryhints.controller;
 
+import id.my.hendisantika.queryhints.entity.Department;
 import id.my.hendisantika.queryhints.entity.Employee;
 import id.my.hendisantika.queryhints.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -37,5 +38,10 @@ public class EmployeeController {
     @GetMapping("/salary/{amount}")
     public ResponseEntity<List<Employee>> getEmployeesBySalaryRange(@PathVariable double amount) {
         return ResponseEntity.ok(employeeService.getEmployeesBySalary(amount));
+    }
+
+    @GetMapping("/department/{dept}")
+    public ResponseEntity<List<Employee>> getEmployeesByDepartment(@PathVariable Department dept) {
+        return ResponseEntity.ok(employeeService.getEmployeesByDepartment(dept.name()));
     }
 }

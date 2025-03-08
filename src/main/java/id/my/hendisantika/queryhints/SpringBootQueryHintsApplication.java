@@ -6,6 +6,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.List;
 import java.util.Random;
@@ -14,7 +15,8 @@ import java.util.stream.IntStream;
 
 import static id.my.hendisantika.queryhints.entity.Department.randomLetter;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "id.my.hendisantika.queryhints")
+@EnableJpaRepositories(basePackages = "id.my.hendisantika.queryhints.repository")
 public class SpringBootQueryHintsApplication {
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -38,7 +40,7 @@ public class SpringBootQueryHintsApplication {
     }
 
     private String getGender() {
-        return new Random().nextBoolean() ? "Male" : "Female";
+        return new Random().nextBoolean() ? "MALE" : "FEMALE";
     }
 
     public static void main(String[] args) {
